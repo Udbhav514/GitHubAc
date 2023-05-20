@@ -1,1 +1,1 @@
-<!-- QUOTE:START --><!-- QUOTE:END -->
+<!--Pokemon Sprite-->
