@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     name: setup environment
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: memes on isssues
         uses: deep5050/memes-on-issues-action@main
