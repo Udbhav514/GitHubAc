@@ -1,16 +1,18 @@
-name: Comic Strip Readme
-
+name: funny comment
 on:
-    workflow_dispatch:
-    schedule:
-        # Runs at 8am UTC every Monday, Wednesday, Friday
-        - cron: "0 8 * * 1,3,5"
-
+  pull_request:
+  issues:
+    types: [opened]
+    
 jobs:
-    update-readme:
-        name: Update README with Comic Strip
-        runs-on: ubuntu-latest
-        steps:
-            - uses: ism0080/comicstrip-readme@v1.2
-              with:
-                  SHOW_XKCD: true
+  comment:
+    if: github.event_name == 'pull_request' || github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add funny comment
+        uses: Marta83/funny-comment-action@v2.1
+        id: FunnyComment
+        with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GIPHY_TOKEN: ${{ secrets. GIPHY_TOKEN }}
+            comment_type: 'chuck'
