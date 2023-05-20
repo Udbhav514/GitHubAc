@@ -1,22 +1,22 @@
-name: Poke Readme
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+name: Dev Memes
 on:
-  workflow_dispatch:
-    inputs:
-      pokemon:
-        description: 'Pokemon Name'
-        required: true
-        default: 'pikachu'
-
+  # run on every 24 hours
+  schedule:
+    - cron: '0 */24 * * *'
+      
+  # or run on every push on the master branch 
+  push:
+    branches:
+    - master
+    
 jobs:
-  add-poke-sprite:
-    name: Add Pokemon Sprite to repo README
+  deploy:
+    name: Update Dev Meme
     runs-on: ubuntu-latest
     steps:
-      - uses: ibrahiem96/poke-readme-action@main
+      - name: Update meme
+        uses: cgyinthehouse/dev-memes-for-README@v1.0
         with:
-          pokemon: ${{ inputs.pokemon }}
-          # gh_token is only required if you are planning to deploy this action for a repo readme other than your profile repo.
-          # gh_token: ${{ inputs.gh_token }}
+          fetch_num: 50
+          commit_author: Kent Chen
+          commit_email: cgyinthehouse@github.com
