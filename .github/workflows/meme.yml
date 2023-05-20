@@ -3,16 +3,12 @@ on:
   issues:
     types: [opened, reopened]
 
-
 jobs:
   test:
     name: setup environment
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: memes on isssues
         uses: deep5050/memes-on-issues-action@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          issue_msg: 'Hi {{author}} enjoy this {{meme}}' # change accordingly
-          PR_msg: 'Hi {{author}} enjoy this {{meme}}' # change accordingly
-          allow_owner: true # get meme on your own issue :)
