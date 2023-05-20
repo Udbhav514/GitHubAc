@@ -1,1 +1,2 @@
-<img alt="MEME" src="" width="350"/>
+<!--START_SECTION:comicstrip-->
+<!--END_SECTION:comicstrip-->
