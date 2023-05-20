@@ -1,12 +1,13 @@
 name: Create a comment on new issues
-
 on:
-  issues:
-    types: [opened]
+  push:
+    branches:
+      - master
 
 jobs:
-  comment-with-action:
+  build:
     runs-on: windows-latest
+
     steps:
       - name: "dump github context"
         run: echo '${{ toJSON(github.event) }}' | jq
