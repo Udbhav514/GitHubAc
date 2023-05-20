@@ -19,3 +19,5 @@ jobs:
                This is a multi-line test comment
                - Created by [create-or-update-comment][1]
            
+              reactions:'+1'
+           
