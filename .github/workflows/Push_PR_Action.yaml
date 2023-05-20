@@ -1,4 +1,4 @@
-name: Hello World worflow
+name: Push and Pull Request Workflow
 
 on:
   push:
