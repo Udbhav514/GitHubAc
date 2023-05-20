@@ -1,18 +1,26 @@
-name: funny comment
+name: Hello World worflow
+
 on:
+  push:
+    branches:
+      - master
   pull_request:
-  issues:
-    types: [opened]
-    
+    branches:
+      - master
+  workflow_dispatch:
+
 jobs:
-  comment:
-    if: github.event_name == 'pull_request' || github.event_name == 'issues'
-    runs-on: ubuntu-latest
+  hello:
+    runs-on: windows-latest
     steps:
-      - name: Add funny comment
-        uses: Marta83/funny-comment-action@v2.1
-        id: FunnyComment
-        with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            GIPHY_TOKEN: ${{ secrets. GIPHY_TOKEN }}
-            comment_type: 'chuck'
+      - uses: actions/checkout@v2
+      - name: hello world
+        run: echo "Hello world"
+        shell: bash
+  
+  goodbye:
+    runs-on: windows-latest
+    steps:
+      - name: goodbye world
+        run: echo "Goodbye world"
+        shell: bash
