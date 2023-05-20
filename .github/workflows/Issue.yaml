@@ -1,24 +1,14 @@
-name: Create a comment on new issues
-
+name: "Greet With A Random Meme"
 on:
   issues:
-      types:[opened]
-      
+    types: [opened, reopened]
+
 jobs:
-  comment-with-action:
-     runs-on: windows-latest
-     steps:
-        - name: "dump github context"
-          run: echo '${{ toJSON(github.event)  }} | jq
-          shell: bash
-        - name: Create comment
-          uses: peter-evans/create-or-update-comment@v1
-          with:
-            issue-number: ${{ github.event.issue.number }}
-            body:
-               This is a multi-line test comment
-               - Created by [create-or-update-comment][1]
-               
-          [1]: https://github.com/peter-evans/create-or-update-comment
-           reactions:'+1'  
-           
+  test:
+    name: setup environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: memes on isssues
+        uses: deep5050/memes-on-issues-action@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
