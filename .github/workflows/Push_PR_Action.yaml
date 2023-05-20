@@ -15,12 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: hello world
-        run: echo "Hello world"
+        run: echo "Hello World! Either a Push has been done or a PR has been sent"
         shell: bash
   
   goodbye:
     runs-on: windows-latest
     steps:
       - name: goodbye world
-        run: echo "Goodbye world"
+        run: echo "Goodbye! I know this is not a good action, but I hope you guys consider submitting something to be better than nothing!"
         shell: bash
